@@ -15,64 +15,64 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPBasis.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPCore.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPD3DObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDevice.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDirectWrite.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPInput.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSingletone.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSound.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPTimer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPWindow.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClCompile Include="PPBasis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPD3DObject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPDirectWrite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPInput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPSound.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPTimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPWindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPBasis.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPCore.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPD3DObject.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDevice.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDirectWrite.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPInput.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSound.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPTimer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPWindow.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="PPBasis.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPD3DObject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDevice.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPDirectWrite.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPInput.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPSingletone.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPSound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPTimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

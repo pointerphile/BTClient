@@ -18,6 +18,29 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="PPBasis.cpp" />
+    <ClCompile Include="PPCore.cpp" />
+    <ClCompile Include="PPD3DObject.cpp" />
+    <ClCompile Include="PPDevice.cpp" />
+    <ClCompile Include="PPDirectWrite.cpp" />
+    <ClCompile Include="PPInput.cpp" />
+    <ClCompile Include="PPSound.cpp" />
+    <ClCompile Include="PPTimer.cpp" />
+    <ClCompile Include="PPWindow.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PPBasis.h" />
+    <ClInclude Include="PPCore.h" />
+    <ClInclude Include="PPD3DObject.h" />
+    <ClInclude Include="PPDevice.h" />
+    <ClInclude Include="PPDirectWrite.h" />
+    <ClInclude Include="PPInput.h" />
+    <ClInclude Include="PPSingletone.h" />
+    <ClInclude Include="PPSound.h" />
+    <ClInclude Include="PPTimer.h" />
+    <ClInclude Include="PPWindow.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{B4DD4E66-742E-475F-9885-9968C8D1C298}</ProjectGuid>
@@ -150,29 +173,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPBasis.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPCore.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPD3DObject.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDevice.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDirectWrite.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPInput.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSingletone.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSound.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPTimer.h" />
-    <ClInclude Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPWindow.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPBasis.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPCore.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPD3DObject.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDevice.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPDirectWrite.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPInput.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPSound.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPTimer.cpp" />
-    <ClCompile Include="..\..\pointerphile\SlotMachine\Source\PPCoreLib\PPWindow.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

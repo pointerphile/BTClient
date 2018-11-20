@@ -4,10 +4,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BTClient", "BTClient\BTClient.vcxproj", "{3915B349-943C-4EAA-B49B-A3F7159CE165}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B4DD4E66-742E-475F-9885-9968C8D1C298} = {B4DD4E66-742E-475F-9885-9968C8D1C298}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WICTextureLoader", "WICTextureLoader\WICTextureLoader.vcxproj", "{60696F5D-5E44-40F5-AA37-7C3EFA9E628B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libppcore", "libppcore\libppcore.vcxproj", "{B4DD4E66-742E-475F-9885-9968C8D1C298}"
+	ProjectSection(ProjectDependencies) = postProject
+		{60696F5D-5E44-40F5-AA37-7C3EFA9E628B} = {60696F5D-5E44-40F5-AA37-7C3EFA9E628B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
