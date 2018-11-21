@@ -261,4 +261,4 @@ __pycache__/
 *.pyc
 
 #exceptions
-!/dependencies\FMOD\lib\x64
+!/dependencies/FMOD/lib/x64
