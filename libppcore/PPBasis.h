@@ -1,11 +1,14 @@
 #pragma once
-
+//#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#undef _WINSOCKAPI_
+#define _WINSOCKAPI_
 #include <iostream>
 #include <chrono>
 #include <tchar.h>
 #include <vector>
 #include <string>
 
+//#include <WinSock2.h>
 #include <d3d11_1.h>
 #include <d3dcompiler.h>
 #include <DirectXMath.h>
@@ -14,6 +17,7 @@
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+//#pragma comment(lib, "ws2_32.lib")
 #ifdef _DEBUG
 #pragma comment(lib, "../x64/Debug/WICTextureLoader.lib")
 #else

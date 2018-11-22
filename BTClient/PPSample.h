@@ -1,9 +1,7 @@
 #pragma once
 #include "../libppcore/PPCore.h"
-#include "RNG.h"
-#include "PPBank.h"
-#include "PPReel.h"
-#include <functional>
+#include "PPD3DObjectManager.h"
+#include "PPClient.h"
 
 #ifdef _DEBUG
 #pragma comment(lib, "../x64/Debug/libppcore.lib")
@@ -15,11 +13,10 @@
 class PPSample : public PPCore
 {
 public:
-	PPD3DObject m_planeLegalWarning;
-
-	RNG m_RNG;
+	PPClient Client;
+	PPD3DObjectManager m_ObjManager;
 	PPTimer m_SceneTimer;
-	IDWriteTextFormat* m_pDWriteTextFormatLegalWarning;
+	//IDWriteTextFormat* m_pDWriteTextFormatLegalWarning;
 
 	bool m_isRunning;
 	bool m_isPlayable;
@@ -32,15 +29,6 @@ public:
 	std::wstring m_strLegalWarning;
 	int m_iStrLegalWarningCount;
 	//_LegalWarning
-
-	//SplashScreen
-	//_SplashScreen
-
-	//OpeningScreen
-	//_OpeningScreen
-
-	//Titlescreen
-	//_Titlescreen
 	
 	PPSample();
 	virtual ~PPSample();
@@ -50,7 +38,6 @@ public:
 	virtual bool Render();
 	virtual bool Release();
 
-	ReelState m_ReelSelector(int iRandomNumber);
 	bool m_RenderInsertCredit();
-	void m_JudgeReel();
+	void ProcessPacket();
 };
