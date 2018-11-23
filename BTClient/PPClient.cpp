@@ -1,5 +1,6 @@
 #include "PPClient.h"
 #include "PPReceivePacketPool.h"
+#include "PPSendPacketPool.h"
 
 bool g_isConnect = true;
 WORD g_PacketType = PACKET_CHAT_MSG;
@@ -60,12 +61,12 @@ bool PPClient::Init() {
 
 	SetNonBlockingSocket(socketClient, false);
 
-	//std::thread threadSend(&PPClient::Send, this);
+	std::thread threadSend(&PPClient::Send, this);
 	std::thread threadReceive(&PPClient::Receive, this);
-	//threadSend.detach();
+	threadSend.detach();
 	threadReceive.detach();
 
-	return false;
+	return true;
 }
 
 bool PPClient::Frame()
@@ -125,12 +126,34 @@ int PPClient::Receive() {
 			if (rcvmsg.m_ph.m_len) {
 				memcpy(&rcvmsg.m_msg, buf, rcvmsg.m_ph.m_len - PACKET_HEADER_SIZE);
 				switch (rcvmsg.m_ph.m_type) {
+				case PACKET_WELCOME_ACK: {
+					wchar_t uni[2048]{};
+					std::cout << rcvmsg.m_msg << std::endl;
+					MultiByteToWideChar(CP_ACP, 0, rcvmsg.m_msg, sizeof(rcvmsg.m_msg), uni, sizeof(uni));
+					//MessageBox(nullptr, uni, nullptr, MB_OK);
+
+					UPACKET Packet = {};
+					//보낼 페킷 처리
+					Packet.m_ph.m_type = PACKETTYPE_PET_PET_DATA;
+					std::string strBuf = "Give me pet data!";
+					memcpy(Packet.m_msg, strBuf.c_str(), strBuf.size());
+					Packet.m_ph.m_len = PACKET_HEADER_SIZE + (unsigned short)strBuf.size();
+					PPSendPacketPool::GetInstance().m_PacketList.push_back(Packet);
+
+				}
+				case PACKETTYPE_PET_PET_DATA: {
+					MessageBox(nullptr, L"PACKETTYPE_PET_PET_DAT", nullptr, MB_OK);
+				}
+				case PACKETTYPE_PET_FOOD_DATA: {
+					MessageBox(nullptr, L"PACKETTYPE_PET_FOOD_DATA", nullptr, MB_OK);
+				}
+
 				case PACKET_CHAT_MSG: {
 					if (g_PacketType == PACKET_CHAT_MSG) {
 						wchar_t uni[2048]{};
 						std::cout << rcvmsg.m_msg << std::endl;
 						MultiByteToWideChar(CP_ACP, 0, rcvmsg.m_msg, sizeof(rcvmsg.m_msg), uni, sizeof(uni));
-						MessageBox(nullptr, uni, nullptr, MB_OK);
+						//MessageBox(nullptr, uni, nullptr, MB_OK);
 					}
 					break;
 				}
@@ -147,32 +170,40 @@ int PPClient::Send()
 {
 	char buf[BUFFERSIZE] = { 0 };
 	while (1) {
-		std::string buf;
-		UPACKET sendmsg = {};
-
-		switch (g_PacketType) {
-		case PACKET_CHAT_MSG: {
-			sendmsg.m_ph.m_type = PACKET_CHAT_MSG;
-			std::getline(std::cin, buf);
-			memcpy(sendmsg.m_msg, buf.c_str(), buf.size());
-			sendmsg.m_ph.m_len = (WORD)strlen(sendmsg.m_msg) + PACKET_HEADER_SIZE;
-			buf.clear();
-			g_PacketType = PACKET_CHAT_MSG;
-			break;
+		if (PPSendPacketPool::GetInstance().m_PacketList.empty() == true) {
+			continue;
 		}
-		default:
-			break;
-		}
+		else {
+			std::string buf;
+			UPACKET sendmsg = {};
 
-		int iSendByte = send(socketClient, (char*)&sendmsg, sendmsg.m_ph.m_len, 0);
-		if (iSendByte == SOCKET_ERROR)
-		{
-			if (WSAGetLastError() != WSAEWOULDBLOCK)
+			//switch (g_PacketType) {
+			//case PACKET_CHAT_MSG: {
+			//	sendmsg.m_ph.m_type = PACKET_CHAT_MSG;
+			//	std::getline(std::cin, buf);
+			//	memcpy(sendmsg.m_msg, buf.c_str(), buf.size());
+			//	sendmsg.m_ph.m_len = (WORD)strlen(sendmsg.m_msg) + PACKET_HEADER_SIZE;
+			//	buf.clear();
+			//	g_PacketType = PACKET_CHAT_MSG;
+			//	break;
+			//}
+			//default:
+			//	break;
+			//}
+
+			sendmsg = PPSendPacketPool::GetInstance().m_PacketList.front();
+
+			int iSendByte = send(socketClient, (char*)&sendmsg, sendmsg.m_ph.m_len, 0);
+			if (iSendByte == SOCKET_ERROR)
 			{
-				std::cout << "Disconnected from server.(Send failed)" << std::endl;
-				err_display();
-				break;
+				if (WSAGetLastError() != WSAEWOULDBLOCK)
+				{
+					std::cout << "Disconnected from server.(Send failed)" << std::endl;
+					err_display();
+					break;
+				}
 			}
+			PPSendPacketPool::GetInstance().m_PacketList.pop_front();
 		}
 	}
 	g_isConnect = false;
