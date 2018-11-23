@@ -1,6 +1,6 @@
 #pragma once
 #include <map>
-#include "C:\Users\User\source\repos\BTClient\libppcore\PPCore.h"
+#include "../libppcore/PPCore.h"
 
 class PPD3DObjectManager : public PPBasis {
 public:
