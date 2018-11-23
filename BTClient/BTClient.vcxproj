@@ -116,10 +116,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="PPBank.cpp" />
-    <ClCompile Include="PPReel.cpp" />
+    <ClCompile Include="PPClient.cpp" />
+    <ClCompile Include="PPD3DObjectManager.cpp" />
     <ClCompile Include="PPSample.cpp" />
-    <ClCompile Include="RNG.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
@@ -132,10 +131,10 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="PPBank.h" />
-    <ClInclude Include="PPReel.h" />
+    <ClInclude Include="PPClient.h" />
+    <ClInclude Include="PPD3DObjectManager.h" />
     <ClInclude Include="PPSample.h" />
-    <ClInclude Include="RNG.h" />
+    <ClInclude Include="PPProtocol.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

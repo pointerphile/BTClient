@@ -260,5 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 
-#exceptions
+#except
 !/dependencies/FMOD/lib/x64
