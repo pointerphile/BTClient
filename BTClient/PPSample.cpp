@@ -1,12 +1,8 @@
 #include "PPSample.h"
+#include "PPReceivePacketPool.h"
 
-PPSample::PPSample() {
-}
-
-
-PPSample::~PPSample() {
-}
-
+PPSample::PPSample() {}
+PPSample::~PPSample() {}
 
 bool PPSample::Init() {
 	m_SceneTimer.Init();

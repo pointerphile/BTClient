@@ -118,7 +118,10 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="PPClient.cpp" />
     <ClCompile Include="PPD3DObjectManager.cpp" />
+    <ClCompile Include="PPPacketPool.cpp" />
+    <ClCompile Include="PPReceivePacketPool.cpp" />
     <ClCompile Include="PPSample.cpp" />
+    <ClCompile Include="PPSendPacketPool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="PixelShader.hlsl">
@@ -133,8 +136,11 @@
   <ItemGroup>
     <ClInclude Include="PPClient.h" />
     <ClInclude Include="PPD3DObjectManager.h" />
+    <ClInclude Include="PPPacketPool.h" />
+    <ClInclude Include="PPReceivePacketPool.h" />
     <ClInclude Include="PPSample.h" />
     <ClInclude Include="PPProtocol.h" />
+    <ClInclude Include="PPSendPacketPool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

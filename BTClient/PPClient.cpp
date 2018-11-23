@@ -1,4 +1,6 @@
 #include "PPClient.h"
+#include "PPReceivePacketPool.h"
+
 bool g_isConnect = true;
 WORD g_PacketType = PACKET_CHAT_MSG;
 
@@ -32,12 +34,12 @@ bool PPClient::Init() {
 
 	WSADATA wsa;
 	if (WSAStartup(MAKEWORD(2, 2), &wsa) != 0) {
-		return -1;
+		return false;
 	}
 
 	socketClient = socket(AF_INET, SOCK_STREAM, 0);
 	if (socketClient == INVALID_SOCKET) {
-		return -1;
+		return false;
 	}
 
 	SOCKADDR_IN saServer;
@@ -50,7 +52,7 @@ bool PPClient::Init() {
 	if (iRet == SOCKET_ERROR) {
 		std::cout << "Connection failed." << std::endl;
 		MessageBox(nullptr, L"Connection failed.", nullptr, MB_OK);
-		return -1;
+		return false;
 	}
 	else {
 		std::cout << "Connected" << std::endl;
@@ -125,7 +127,10 @@ int PPClient::Receive() {
 				switch (rcvmsg.m_ph.m_type) {
 				case PACKET_CHAT_MSG: {
 					if (g_PacketType == PACKET_CHAT_MSG) {
+						wchar_t uni[2048]{};
 						std::cout << rcvmsg.m_msg << std::endl;
+						MultiByteToWideChar(CP_ACP, 0, rcvmsg.m_msg, sizeof(rcvmsg.m_msg), uni, sizeof(uni));
+						MessageBox(nullptr, uni, nullptr, MB_OK);
 					}
 					break;
 				}

@@ -1,6 +1,5 @@
 #pragma once
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
-//#include "C:\Users\User\source\repos\BTClient\libppcore\PPCore.h"
 
 #include <WinSock2.h>
 #pragma comment(lib, "ws2_32.lib")
