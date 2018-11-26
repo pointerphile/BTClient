@@ -22,14 +22,14 @@ public:
 //constexpr auto PACKETTYPE_PET_PET_DATA = 50000;
 class PACKET_PET_DATA {
 public:
-	int m_iPetID;
+	uint64_t m_iPetID;
 	int m_iPosition;
 };
 
 //constexpr auto PACKETTYPE_PET_FOOD_DATA = 50005;
 class PACKET_FOOD_DATA {
 public:
-	int m_iObjectID;
+	uint64_t m_iObjectID;
 	int m_iPosition;
 	int m_iQuantity;
 };
@@ -37,23 +37,26 @@ public:
 //constexpr auto PACKETTYPE_PET_MOVE = 50002;
 class PACKET_PET_MOVE {
 public:
-	int m_iPetID;
+	uint64_t m_iPetID;
 	int m_iDirection;
 };
 
 //constexpr auto PACKETTYPE_PET_EAT = 50003;
 class PACKET_EAT_FOOD {
-	int m_iTargetFoodID;
+public:
+	uint64_t m_iTargetFoodID;
 	int m_iQuantity;
 };
 
 //constexpr auto PACKETTYPE_PET_DELETE_FOOD = 50004;
 class PACKET_DELETE_FOOD {
-	int m_iTargetFoodID;
+public:
+	uint64_t m_iTargetFoodID;
 };
 
 //constexpr auto PACKETTYPE_PET_GIVE_FOOD = 50001;
 class PACKET_GIVE_FOOD {
+public:
 	int m_iPosition;
 	int m_iQuantity;
 };

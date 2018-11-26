@@ -73,9 +73,16 @@ void PPSample::ProcessPacket() {
 			int64_t iPetHandle = PacketMove.m_iPetID;
 			PPD3DObject* pPet = m_ObjManager.m_map.find(iPetHandle)->second;
 			pPet->m_SetPosition(pPet->m_Position.x + PacketMove.m_iDirection * 50, pPet->m_Position.y);
-
 			break;
 		}
+		case PACKETTYPE_PET_DELETE_FOOD: {
+			PACKET_DELETE_FOOD PacketDeleteFood = {};
+			memcpy(&PacketDeleteFood, PacketRecv.m_msg, PacketRecv.m_ph.m_len - PACKET_HEADER_SIZE);
+			int64_t iTargetFoodID = PacketDeleteFood.m_iTargetFoodID;
+			m_ObjManager.m_map.erase(iTargetFoodID);
+			break;
+		}
+
 		default: {
 			break;
 		}

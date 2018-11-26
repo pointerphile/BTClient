@@ -153,6 +153,10 @@ int PPClient::Receive() {
 					PPReceivePacketPool::GetInstance().m_PacketList.push_back(rcvmsg);
 					break;
 				}
+				case PACKETTYPE_PET_DELETE_FOOD: {
+					PPReceivePacketPool::GetInstance().m_PacketList.push_back(rcvmsg);
+					break;
+				}
 				case PACKET_CHAT_MSG: {
 					if (g_PacketType == PACKET_CHAT_MSG) {
 						wchar_t uni[2048]{};
@@ -162,6 +166,8 @@ int PPClient::Receive() {
 					}
 					break;
 				}
+				default:
+					break;
 				}
 
 			}
