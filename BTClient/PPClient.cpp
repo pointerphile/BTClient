@@ -139,15 +139,20 @@ int PPClient::Receive() {
 					memcpy(Packet.m_msg, strBuf.c_str(), strBuf.size());
 					Packet.m_ph.m_len = PACKET_HEADER_SIZE + (unsigned short)strBuf.size();
 					PPSendPacketPool::GetInstance().m_PacketList.push_back(Packet);
-
+					break;
 				}
 				case PACKETTYPE_PET_PET_DATA: {
-					MessageBox(nullptr, L"PACKETTYPE_PET_PET_DAT", nullptr, MB_OK);
+					PPReceivePacketPool::GetInstance().m_PacketList.push_back(rcvmsg);
+					break;
 				}
 				case PACKETTYPE_PET_FOOD_DATA: {
-					MessageBox(nullptr, L"PACKETTYPE_PET_FOOD_DATA", nullptr, MB_OK);
+					PPReceivePacketPool::GetInstance().m_PacketList.push_back(rcvmsg);
+					break;
 				}
-
+				case PACKETTYPE_PET_MOVE: {
+					PPReceivePacketPool::GetInstance().m_PacketList.push_back(rcvmsg);
+					break;
+				}
 				case PACKET_CHAT_MSG: {
 					if (g_PacketType == PACKET_CHAT_MSG) {
 						wchar_t uni[2048]{};

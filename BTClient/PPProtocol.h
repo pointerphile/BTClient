@@ -37,6 +37,7 @@ public:
 //constexpr auto PACKETTYPE_PET_MOVE = 50002;
 class PACKET_PET_MOVE {
 public:
+	int m_iPetID;
 	int m_iDirection;
 };
 
